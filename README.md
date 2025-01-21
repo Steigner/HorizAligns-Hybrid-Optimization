@@ -7,12 +7,13 @@
 
 <table>
   <tr>
-    <td><img src="docs/ex1.png"></td>
     <td><img src="docs/ex2.png"></td>
+    <td><img src="docs/ex3.png"></td>
   </tr>
 </table>
 
 ## Easy Setup
+### Docker
 
 ```
 docker build -t your_name_of_docker .
@@ -20,9 +21,33 @@ docker run -it --rm your_name_of_docker bash
 python3 scripts/main.py
 ```
 
+### Configuration
+
+The `main_conf` dictionary in  `main.py` defines the main configuration parameters for the optimization run. Below is the detailed description of each parameter:
+
+| **Key**                  | **Type**       | **Description**                                                                 | **Default/Example**                   |
+|--------------------------|----------------|---------------------------------------------------------------------------------|---------------------------------------|
+| `heightmap`              | `string`       | Path to the selected heightmap (from `conf_example`).                           | Example: `"./heightmaps/slovenia.npy"`|
+| `res`                    | `(int, int)`   | Resolution for the selected heightmap.                                          | Example: `(200, 400)`                 |
+| `start`                  | `(int, int)`   | Start coordinates (from `conf_example`).                                        | Example: `(175, 0)`                   |
+| `goal`                   | `(int, int)`   | Goal coordinates (from `conf_example`).                                         | Example: `(160, 290)`                 |
+| `algo`                   | `string`       | Selected optimization algorithm (from `conf_example["opti_algos"]`).            | Example: `"CMAES"`                    |
+| `cutting_plane_factor`   | `float`        | Cutting plane factor used in optimization.                                      | Default: `1`                          |
+| `epsilon`                | `float`        | Epsilon parameter for optimization.                                             | Default: `1`                          |
+| `pop_size`               | `int`          | Population size for the optimization algorithm.                                 | Default: `60`                         |
+| `gen_size`               | `int`          | Number of generations for the optimization algorithm.                           | Default: `50`                         |
+| `tau`                    | `float`        | Tau parameter for optimization.                                                 | Default: `0.4`                        |
+| `seed`                   | `int`          | Random seed for reproducibility.                                                | Example: `10`                         |
+| `run_name`               | `string`       | Unique identifier for the run, typically generated using `uuid`.                | Example: `"f47ac10b58cc4372a5670e02"` |
+
 ## Authors
 
 * Ane Espeseth 📫 ane.espeseth@gmail.com
 * Martin Juricek 📫 200543@vutbr.cz
 * Harald M. Ludwig 📫 ludwig@csh.ac.at
 * Tea Tušar 📫 tea.tusar@ijs.si
+
+
+
+
+
